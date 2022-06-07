@@ -98,7 +98,8 @@ HT16K33::HT16K33(const uint8_t address, TwoWire *wire)
 #if defined (ESP8266) || defined(ESP32)
 bool HT16K33::begin(uint8_t sda, uint8_t scl)
 {
-  _wire = &Wire;
+  // _wire = &Wire;  // this code was in original library
+  // i2c bus defaults to Wire in constructor, so the line before is an error
   if ((sda < 255) && (scl < 255))
   {
     _wire->begin(sda, scl);
