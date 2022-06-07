@@ -113,12 +113,14 @@ public:
   bool    displayFixedPoint2(float f);
   bool    displayFixedPoint3(float f);
 
+  // Somestimes it's useful to write charachters on specific position
+  // (for example, some displays have additional dots attached to position 2)
+  void    writePos(uint8_t pos, uint8_t mask);
+  void    writePos(uint8_t pos, uint8_t mask, bool point);
 
 private:
   void    _refresh();
   void    writeCmd(uint8_t cmd);
-  void    writePos(uint8_t pos, uint8_t mask);
-  void    writePos(uint8_t pos, uint8_t mask, bool point);
 
   uint8_t _address;
   uint8_t _displayCache[5];                 // for performance
