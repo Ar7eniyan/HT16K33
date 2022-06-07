@@ -288,7 +288,10 @@ bool HT16K33::displayTime(uint8_t left, uint8_t right, bool colon, bool lz)
   x[2] = right / 10;
   x[3] = right - x[2] * 10;
   display(x);
-  displayColon(colon);
+  if (colon) {
+    displayColon(colon);
+  }
+
   return inRange;
 }
 
